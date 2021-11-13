@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GoogleAuthModule } from 'src/google-auth/google-auth.module';
 import { TehTarikModule } from 'src/teh-tarik/teh-tarik.module';
+import { configValidationSchema } from './config.schema';
 
 @Module({
 	imports: [
@@ -10,7 +12,6 @@ import { TehTarikModule } from 'src/teh-tarik/teh-tarik.module';
 			envFilePath: [`.env.stage.${process.env.STAGE}`],
 			validationSchema: configValidationSchema,
 		}),
-		TimeTrackerModule,
 		TypeOrmModule.forRootAsync({
 			imports: [ConfigModule],
 			inject: [ConfigService],
@@ -32,7 +33,10 @@ import { TehTarikModule } from 'src/teh-tarik/teh-tarik.module';
 					database: configService.get('DB_DATABASE'),
 				}
 			}
-		})],
+		}),
+        TehTarikModule,
+        GoogleAuthModule
+    ],
     controllers: [],
     providers: [],
 })
