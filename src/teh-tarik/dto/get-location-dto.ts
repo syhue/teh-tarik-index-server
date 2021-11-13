@@ -7,4 +7,7 @@ export class GetLocationDto {
 
     @IsNotEmpty()
     coordinateY: string;
+    
+    @IsNotEmpty()
+    locationName: string;
 }

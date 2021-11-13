@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GoogleAuthModule } from 'src/google-auth/google-auth.module';
 import { TehTarikModule } from 'src/teh-tarik/teh-tarik.module';
 
 @Module({
@@ -15,6 +16,7 @@ import { TehTarikModule } from 'src/teh-tarik/teh-tarik.module';
         synchronize: true,
     }),
         TehTarikModule,
+        GoogleAuthModule
     ],
     controllers: [],
     providers: [],

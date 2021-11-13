@@ -8,9 +8,9 @@ export class TehTarikRepository extends Repository<TehTarik> {
 
     async createTehTarik(createTehTarikDto: CreateTehTarikDto): Promise<TehTarik> {
 
-        const { price, coordinateX, coordinateY, ipAddress, userId } = createTehTarikDto;
+        const { price, coordinateX, coordinateY, locationName, userId } = createTehTarikDto;
         
-        const tehTarik = this.create({ price, coordinateX, coordinateY, ipAddress, userId });
+        const tehTarik = this.create({ price, coordinateX, coordinateY, locationName, userId });
 
         await this.save(tehTarik);
 
@@ -27,7 +27,9 @@ export class TehTarikRepository extends Repository<TehTarik> {
         return tehTarik.map(d => {
             return {
                 coordinateX: d.coordinateX,
-                coordinateY: d.coordinateY
+                coordinateY: d.coordinateY,
+                locationName: d.locationName,
+                price: d.price
             }
         });
     }

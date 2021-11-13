@@ -12,11 +12,14 @@ export class TehTarik {
     @Column('float')
     coordinateY: string;
 
+    @Column()
+    locationName: string;
+
     @Column('float')
     price: string;
 
-    @Column()
-    ipAddress: string;
+    // @Column()
+    // ipAddress: string;
 
     @Column()
     userId: string;

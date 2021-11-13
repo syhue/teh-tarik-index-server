@@ -12,7 +12,7 @@ export class CreateTehTarikDto {
     coordinateY: string;
 
     @IsNotEmpty()
-    ipAddress: string;
+    locationName: string;
 
     @IsNotEmpty()
     userId: string;
